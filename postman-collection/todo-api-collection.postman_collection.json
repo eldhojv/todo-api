@@ -271,12 +271,12 @@
 					"name": "Tasks",
 					"item": [
 						{
-							"name": "http://localhost:5000/user/1/todo/1",
+							"name": "http://localhost:5000/user/6/todo/12?category=completed",
 							"request": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:5000/user/1/todo/1",
+									"raw": "http://localhost:5000/user/6/todo/12?category=completed",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -284,12 +284,19 @@
 									"port": "5000",
 									"path": [
 										"user",
-										"1",
+										"6",
 										"todo",
-										"1"
+										"12"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "completed",
+											"description": "can have values completed or pending"
+										}
 									]
 								},
-								"description": "get all tasks associated with the corresponding todo_id"
+								"description": "get all tasks associated with the corresponding todo_id\n\nto get all completed tasks : user/userid/todo/todoid?category=completed\n\nto get all pending tasks   : user/userid/todo/todoid?category=pending\n\nto get all tasks           : user/userid/todo/todoid"
 							},
 							"response": []
 						},
