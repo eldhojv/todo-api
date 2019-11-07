@@ -1,0 +1,411 @@
+{
+	"info": {
+		"_postman_id": "e0ee9242-da7f-48e9-b86b-ecd11e1e1b89",
+		"name": "todo-api-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User-Requests",
+			"item": [
+				{
+					"name": "http://localhost:5000/user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user"
+							]
+						},
+						"description": "to get details of all the users in the portal"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"harry\",\n\t\"email\": \"harry@gmail.com\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Create New User\n\nBody(raw - JSON(applicaton/json)) \n\nexample format: \n\n{\n\t\"name\": \"harry\",\n\t\"email\": \"harry@gmail.com\"\n}"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":6,\n\t\"name\":\"harryms\",\n\t\"email\":\"harryms@gmail.com\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user"
+							]
+						},
+						"description": "Update User Information\n\nBody(raw - JSON(applicaton/json))\n\nexample format:\n\n{\n\t\"id\":6,\n\t\"name\":\"harryms\",\n\t\"email\":\"harryms@gmail.com\"\n}"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:5000/user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":6\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"user"
+							]
+						},
+						"description": "Delete a user\n\nBody(raw - JSON(applicaton/json)) \n\nexample format: \n\n{ \"id\":6 }"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Todo-Requests",
+			"item": [
+				{
+					"name": "Todos",
+					"item": [
+						{
+							"name": "http://localhost:5000/user/1/todo",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/user/1/todo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"user",
+										"1",
+										"todo"
+									]
+								},
+								"description": "get all the todos and tasks of a user"
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:5000/user/6/todo",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"title\": \"Exercise todo\",\r\n\t\"tasks\": [\r\n\t\t{\r\n\t\t\t\"content\": \"balling\",\r\n\t\t\t\"is_completed\": 0\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"content\": \"jogging\",\r\n\t\t\t\"is_completed\": 1\r\n\t\t}\r\n\t\t]\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/user/6/todo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"user",
+										"6",
+										"todo"
+									]
+								},
+								"description": "to create new todo and it's tasks\n\nBody(raw - JSON(applicaton/json))\n\nexample format: \n\n{\n\t\"title\": \"Exercise todo\",\n\t\"tasks\": [\n\t\t{\n\t\t\t\"content\": \"balling\",\n\t\t\t\"is_completed\": 0\n\t\t},\n\t\t{\n\t\t\t\"content\": \"jogging\",\n\t\t\t\"is_completed\": 1\n\t\t}\n\t\t]\n}"
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:5000/user/6/todo",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\":11,\n\t\"title\":\"Todo Entertainment updated\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/user/6/todo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"user",
+										"6",
+										"todo"
+									]
+								},
+								"description": "to update todo title \n\nBody(raw - JSON(applicaton/json)) \n\nexample format:\n\n{\n\t\"id\":11,\n\t\"title\":\"Todo Entertainment updated\"\n}"
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:5000/user/6/todo",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\":11\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/user/6/todo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"user",
+										"6",
+										"todo"
+									]
+								},
+								"description": "to delete todo and associated tasks of a user\n\nBody(raw - JSON(applicaton/json)) \n\nexample format: \n\n{\n\t\"id\":11\n}"
+							},
+							"response": []
+						}
+					],
+					"description": "Requests for ToDos",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Tasks",
+					"item": [
+						{
+							"name": "http://localhost:5000/user/1/todo/1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/user/1/todo/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"user",
+										"1",
+										"todo",
+										"1"
+									]
+								},
+								"description": "get all tasks associated with the corresponding todo_id"
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:5000/user/6/todo/11",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n\t\"todo-tasks\":[\n\t\t{\n\t\t\t\"content\":\"see movie\",\n\t\t\t\"is_completed\":0\n\t\t},\n\t\t{\n\t\t\t\"content\":\"movie fees\",\n\t\t\t\"is_completed\":1\n\t\t}]\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/user/6/todo/11",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"user",
+										"6",
+										"todo",
+										"11"
+									]
+								},
+								"description": "to insert new tasks to the corresponding todo\n\nBody(raw - JSON(applicaton/json)) \n\nexample format: \n\n{ \n\t\"todo-tasks\":[\n\t\t{\n\t\t\t\"content\":\"see movie\",\n\t\t\t\"is_completed\":0\n\t\t},\n\t\t{\n\t\t\t\"content\":\"movie fees\",\n\t\t\t\"is_completed\":1\n\t\t}]\n}"
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:5000/user/6/todo/11",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n\t\"todo-tasks\":[\n\t\t{\n\t\t\t\"id\": 20,\n\t\t\t\"content\":\"summary updated\",\n\t\t\t\"is_completed\":0\n\t\t},\n\t\t{\n\t\t\t\"id\": 21,\n\t\t\t\"content\":\"done prev song\",\n\t\t\t\"is_completed\":1\n\t\t}]\n}"
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/user/6/todo/11",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"user",
+										"6",
+										"todo",
+										"11"
+									]
+								},
+								"description": "to update tasks in the corresponding todos\n\nBody(raw - JSON(applicaton/json)) \n\nexample format:\n\n{ \n\t\"todo-tasks\":[\n\t\t{\n\t\t\t\"id\": 20,\n\t\t\t\"content\":\"summary updated\",\n\t\t\t\"is_completed\":0\n\t\t},\n\t\t{\n\t\t\t\"id\": 21,\n\t\t\t\"content\":\"done prev song\",\n\t\t\t\"is_completed\":1\n\t\t}]\n}"
+							},
+							"response": []
+						},
+						{
+							"name": "http://127.0.0.1:5000/user/6/todo/11",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"todo-tasks\":[\n\t\t{\n\t\t\t\"id\":20\n\t\t},\n\t\t{\n\t\t\t\"id\":21\n\t\t}]\n}"
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/user/6/todo/11",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"user",
+										"6",
+										"todo",
+										"11"
+									]
+								},
+								"description": "to delete tasks of corresponding todo\n\nBody(raw - JSON(applicaton/json))\n\nexample format:\n{\n\t\"todo-tasks\":[\n\t\t{\n\t\t\t\"id\":20\n\t\t},\n\t\t{\n\t\t\t\"id\":21\n\t\t}]\n}"
+							},
+							"response": []
+						}
+					],
+					"description": "Request for ToDo Tasks",
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	]
+}
