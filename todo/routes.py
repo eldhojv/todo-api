@@ -154,22 +154,31 @@ def delete_todo_and_tasks(user_id):
     else:
         return jsonify({'message':'Invalid user_id/todo_id. No data found'})
     
-# ----- get task associated with todo id of corresponding user -----
+# ----- get task associated with todo id of corresponding user  -----
+# ----- to add relevant filters use category parameter eg: /user/1/todo/5?category=completed -----
 @app.route("/user/<user_id>/todo/<todo_id>", methods=['GET'])
 def get_user_todo_lists(user_id, todo_id):
     todo = Todo.query.filter_by(user_id=user_id, id=todo_id).all()
     if not todo:
         return jsonify({'message':'Invalid user_id/todo_id. No data found'})
     else:
-        tasks = Tasks.query.filter_by(todo_id=todo_id).all()
+        category_param = request.args.get('category')
+        switcher = {'completed':1,'pending':0}
+        task_category = switcher.get(category_param, None)
         output=[]
+
+        if task_category == 1 or task_category == 0:
+            tasks = Tasks.query.filter_by(todo_id=todo_id, is_completed=task_category).all()
+        else:
+            tasks = Tasks.query.filter_by(todo_id=todo_id).all()
+
         for each_task in tasks:
             lists={}
             lists['id']=each_task.id
             lists['content']=each_task.content
             lists['is_completed']=each_task.is_completed
             output.append(lists)
-        return jsonify({'todo-tasks': output})  
+        return jsonify({'todo-tasks': output})
 
 # ---- to insert new task for corresponding todo of a user -----
 @app.route("/user/<user_id>/todo/<todo_id>", methods=['POST'])  
