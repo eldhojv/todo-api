@@ -12,4 +12,4 @@ https://mpenn.pythonanywhere.com/user/1/todo
 
 https://mpenn.pythonanywhere.com/user/1/todo/
 
-https://mpenn.pythonanywhere.com/user/6?category=completed
+https://mpenn.pythonanywhere.com/user/6/todo/12?category=completed
